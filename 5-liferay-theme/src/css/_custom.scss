@@ -1,0 +1,125 @@
+/* These inject tags are used for dynamically creating imports for themelet styles, you can place them where ever you like in this file. */
+
+/* inject:imports */
+
+@import 'liferay-font-awesome/scss/font-awesome';
+@import 'liferay-font-awesome/scss/glyphicons';
+
+/* endinject */
+
+/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+
+.custom-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #222;
+    padding: 0 1rem;
+    min-height: 60px;
+    position: relative;
+  
+    .navbar-left {
+      display: flex;
+      align-items: center;
+  
+      .navbar-logo img {
+        height: 40px;
+        width: auto;
+        display: block;
+      }
+      .site-name {
+        color: #fff;
+        margin-left: 0.75rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+    }
+  
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      position: relative;
+  
+      .navbar-toggle {
+        display: none;
+        background: #222;
+        color: #fff;
+        border: none;
+        padding: 1rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+        margin-left: 1rem;
+      }
+  
+      .navbar-menu {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+  
+        li {
+          position: relative;
+  
+          a {
+            display: block;
+            padding: 1rem 1.2rem;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.2s;
+            border-radius: 3px;
+  
+            &:hover,
+            &.selected {
+              background: #444;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  /* Responsive Hamburger Menu */
+  @media (max-width: 768px) {
+    .custom-navbar {
+      /* Keep flex row and align-items center! */
+      flex-direction: row;
+      align-items: center;
+  
+      .navbar-right {
+        .navbar-toggle {
+          display: block;
+        }
+  
+        .navbar-menu {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          background: #222;
+          width: 200px;
+          z-index: 1000;
+  
+          li {
+            margin: 0;
+  
+            a {
+              padding: 1rem 1.2rem;
+            }
+          }
+        }
+  
+        .navbar-menu.show {
+          display: flex;
+        }
+      }
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .navbar-toggle {
+      display: none !important;
+    }
+  }
+  
